@@ -2,6 +2,11 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        InputDriver inputDriver = new RacingCarInput();
+        InputDTO input = inputDriver.input();
+        inputDriver.validate(input.carNames);
+
+        GameDriver gameDriver = new RacingCarGame(input);
+        gameDriver.run();
     }
 }
